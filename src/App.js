@@ -1,28 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './sections/Header'
+import LandingPage from './sections/LandingPage'
+import About from './sections/About'
+import Offer from './sections/Offer'
+import Footer from './sections/Footer'
 
-// komentarz
+// komponentem funkcyjny - stara metoda pisania komponentów
+// function App(props){
+//   return (<p>somehtml</p>)
+// }
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const App = (props) => {
+  return (<div className="app">
+      <Header />
+      <LandingPage/>
+      <About/>
+      <Offer/>
+      <Footer/>
+    </div>)
 }
 
 export default App;
