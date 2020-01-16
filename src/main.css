@@ -91,59 +91,20 @@ nav a {
     color: black;
 }
 
-#about {
-    padding: 50px 0;
-    background-color: #F1F1F1;
-}
-
-#about h1, #offer h1 {
-    margin-bottom: 50px;
-    color: #152D41;
-    font-size: 36px;
-    font-weight: bold;
-    text-align: center;
-}
-
-.about-employee {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 50px;
-    align-items: center;
-    font-size: 18px;
-    text-align: justify;
-}
-
-.about-employee h3 {
-    margin-bottom: 15px;
-    margin-top: 50px;
-    font-weight: bold;
-}
-
-.about-employee-pic-one {
-    background-image: url('https://specials-images.forbesimg.com/imageserve/5d8bd74018444200084e889c/416x416.jpg?background=000000&cropX1=1339&cropX2=3743&cropY1=554&cropY2=2956');
-}
-
-.about-employee-pic-two {
-    background-image: url('https://specials-images.forbesimg.com/imageserve/5c76b4b84bbe6f24ad99c370/416x416.jpg?background=000000&cropX1=0&cropX2=4000&cropY1=0&cropY2=4000');
-}
-
-.about-employee-pic-one, .about-employee-pic-two {
-    background-position: center;
-    flex-shrink: 0;
-    margin-bottom: 50px;
-    width: 200px;
-    height: 200px;
-    background-size: cover;
-    border-radius: 50%;
-}
 
 #offer {
     padding: 50px 0;
     background-color: #405D78;
 }
 
+
 #offer h1 {
+    margin-bottom: 50px;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
     color: white;
+
 }
 
 .offer-box-container {

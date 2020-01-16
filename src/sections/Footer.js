@@ -1,19 +1,32 @@
 import React from 'react';
 
+
+const condition = false
+
 const Footer = ()=>{
-    return (
-        <footer>
-            <div className="container">
-                <div className="footer-rights">
-                    <p>Nazwa firmy - wszelkie prawa zastrzeżone, 2019</p>
+    
+    if(condition){
+        return (
+            <footer>
+             {/*loader*/}
+            </footer>
+        )
+    }
+    else{
+        return (
+            <footer>
+            {/*reszta dużej aplikacji*/}
+
+                <div className="container">
+                    <div className="footer-icons">
+                        <i className="fab fa-instagram"></i>
+                        <i className="fab fa-facebook"></i>
+                    </div>
                 </div>
-                <div className="footer-icons">
-                    <i className="fab fa-instagram"></i>
-                    <i className="fab fa-facebook"></i>
-                </div>
-            </div>
-        </footer>
-    )
+            </footer>
+        )
+    }
+
 }
 
 export default Footer

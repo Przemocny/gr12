@@ -1,7 +1,7 @@
 import React from 'react';
 
 // deklaracja
-const Header = ()=>{
+const Header = ({sideMenu})=>{
     return (
         <nav>
         <div className="container">
@@ -9,9 +9,9 @@ const Header = ()=>{
                 <a href="index.html" className="nav-company-name">nazwa firmy</a>
             </div>
             <div className="container-links">
-                <a href="#about">o nas</a>
-                <a href="#offer">oferta</a>
-                <a className="container-links-disabled" href="#">kontakt</a>
+                <a onClick={(event)=>{
+                    sideMenu.current.toggleMenu(event)
+                }}>Menu</a>
             </div>
         </div>
     </nav>
