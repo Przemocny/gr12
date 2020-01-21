@@ -7,6 +7,7 @@ import Footer from './sections/Footer'
 
 import Modal from './sections/Modal'
 import SideMenu from './sections/SideMenu'
+import LifecycleComponent from './sections/LifecycleComponent'
 
 // komponentem funkcyjny - stara metoda pisania komponentów
 // function App(props){
@@ -18,12 +19,19 @@ class App extends React.Component {
   modalRef = React.createRef()
   sideMenuRef = React.createRef()
 
+  state = {turnOff : true}
+
   componentDidMount(){
-    console.log(this.modalRef.current)
+    setTimeout(()=>{
+      this.setState({
+        turnOff:false
+      })
+    },3000)
   }
 
   render(){
     return (<div className="app">
+      {this.state.turnOff && <LifecycleComponent/>}
       <Modal ref={this.modalRef} />
       <SideMenu ref={this.sideMenuRef} />
       <Header sideMenu={this.sideMenuRef} />
