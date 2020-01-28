@@ -1,6 +1,8 @@
-import React from 'react';
+import React from 'react'
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
+
 import Header from './sections/Header'
-import LandingPage, {LandingPageInner} from './sections/LandingPage'
+import LandingPage, { LandingPageInner } from './sections/LandingPage'
 import About from './sections/About'
 import Offer from './sections/Offer'
 import Footer from './sections/Footer'
@@ -14,39 +16,63 @@ import LifecycleComponent from './sections/LifecycleComponent'
 //   return (<p>somehtml</p>)
 // }
 
-class App extends React.Component {
-
-  modalRef = React.createRef()
-  sideMenuRef = React.createRef()
-
-  state = {turnOff : true}
-
-  componentDidMount(){
-    setTimeout(()=>{
-      this.setState({
-        turnOff:false
-      })
-    },3000)
-  }
-
-  render(){
-    return (<div className="app">
-      {this.state.turnOff && <LifecycleComponent/>}
-      <Modal ref={this.modalRef} />
-      <SideMenu ref={this.sideMenuRef} />
-      <Header sideMenu={this.sideMenuRef} />
-      <LandingPage>
-      <LandingPageInner modal={this.modalRef}/>
-      </LandingPage>
-      <About limit={4}/>
-      <Offer onClickElement={(title, isOfferNew)=>{
-        alert(`${title} ${isOfferNew}`)
-      }}/>
-      <Footer/>
-    </div>)
-  }
-
+const ErrorPage = ()=>{
+  return (
+    <div>
+      Podstrona nie istnieje
+    </div>
+  )
 }
- 
 
-export default App;
+class App extends React.Component {
+	modalRef = React.createRef()
+	sideMenuRef = React.createRef()
+
+	state = { turnOff: true }
+
+	componentDidMount() {
+		setTimeout(() => {
+			this.setState({
+				turnOff: false,
+			})
+		}, 3000)
+	}
+
+	render() {
+		return (
+			<Router>
+				<div className='app'>
+					{this.state.turnOff && <LifecycleComponent />}
+					<Modal ref={this.modalRef} />
+					<SideMenu ref={this.sideMenuRef} />
+					<Header sideMenu={this.sideMenuRef} />
+
+					<Switch>
+						<Route exact path="/">
+							<LandingPage>
+								<LandingPageInner modal={this.modalRef} />
+							</LandingPage>
+						</Route>
+						<Route exact path="/about">
+							<About limit={4} />
+						</Route>
+						<Route exact path="/offer">
+							<Offer
+								onClickElement={(title, isOfferNew) => {
+									alert(`${title} ${isOfferNew}`)
+								}}
+							/>
+            </Route>
+            <Route path="/*">
+              <Redirect to="/"/>
+            </Route>
+					</Switch>
+
+					<Footer />
+				</div>
+			</Router>
+		)
+	}
+}
+
+export default App

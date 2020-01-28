@@ -1,4 +1,5 @@
 import React from 'react'
+import {withRouter, Redirect} from 'react-router-dom'
 
 const people = [
     {
@@ -79,7 +80,22 @@ const Person = ({name, position, img, description, index}) => {
 	)
 }
 
-const About = ({limit=3}) => {
+const About = withRouter((props) => {
+
+    const { limit=3 } = props
+    const { id } = props.match.params
+    
+    if(Number.isNaN(Number(id)) === false){
+        if(Number(id) >= 0){
+            console.log('ID dobrze', id, Number(id))
+        }
+        else{
+            return (<Redirect to="/about/1"/>)
+        }
+    }
+    else{
+        return (<Redirect to="/about/1"/>)
+    }
 
     const limitedPeople = people.filter((element, key)=>{
         return key <= limit - 1
@@ -101,7 +117,7 @@ const About = ({limit=3}) => {
 			</div>
 		</section>
 	)
-}
+})
 
 
 
