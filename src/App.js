@@ -11,6 +11,9 @@ import Modal from './sections/Modal'
 import SideMenu from './sections/SideMenu'
 import LifecycleComponent from './sections/LifecycleComponent'
 
+import ReduxComponent from './sections/ReduxComponent'
+
+
 // komponentem funkcyjny - stara metoda pisania komponentów
 // function App(props){
 //   return (<p>somehtml</p>)
@@ -28,20 +31,12 @@ class App extends React.Component {
 	modalRef = React.createRef()
 	sideMenuRef = React.createRef()
 
-	state = { turnOff: true }
-
-	componentDidMount() {
-		setTimeout(() => {
-			this.setState({
-				turnOff: false,
-			})
-		}, 3000)
-	}
-
 	render() {
 		return (
 			<Router>
 				<div className='app'>
+				<ReduxComponent/>
+					{/*
 					{this.state.turnOff && <LifecycleComponent />}
 					<Modal ref={this.modalRef} />
 					<SideMenu ref={this.sideMenuRef} />
@@ -62,13 +57,14 @@ class App extends React.Component {
 									alert(`${title} ${isOfferNew}`)
 								}}
 							/>
-            </Route>
-            <Route path="/*">
-              <Redirect to="/"/>
-            </Route>
-					</Switch>
+					</Route>
+					<Route path="/*">
+					<Redirect to="/"/>
+					</Route>
+							</Switch>
 
-					<Footer />
+							<Footer />
+					*/}
 				</div>
 			</Router>
 		)
